@@ -13,20 +13,20 @@ export default class Ui {
       </li>
       `;
     });
-    // for (let i = 0; i < players.length; i += 1) {
-    //   listItems.innerHTML = `
-    // //   <li>
-    // //     <p>${players[i].user}</p>
-    // //     <p>${players[i].score}</p>
-    // //   </li>
-    // //   `;
-    // }
   }
 
   static clearField() {
     const listItems = document.querySelector('.list');
     listItems.innerHTML = '';
   }
+}
+
+async function getData() {
+  const pull = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Ml0wfxegyFf06umHiVlI/scores/');
+
+  const data = await pull.json();
+  const dataOut = await data.result;
+  Ui.render(dataOut);
 }
 
 const submitBtn = document.querySelector('.submitBtn');
@@ -41,6 +41,5 @@ submitBtn.addEventListener('click', (e) => {
 const refreshBtn = document.querySelector('.refreshBtn');
 refreshBtn.addEventListener('click', () => {
   Ui.clearField();
-  Api.getData();
+  getData();
 });
-

@@ -1,14 +1,16 @@
+import Ui from ".";
+
 export default class Api {
   static async getData() {
-    const pull = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/YVT6ZZMxjdxKz7wTavRV/scores/');
+    const pull = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Ml0wfxegyFf06umHiVlI/scores/');
 
     const data = await pull.json();
     const dataOut = await data.result;
-    return dataOut;
+    Ui.render(dataOut);
   }
   
   static async moveToApi(player) {
-    const res = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/YVT6ZZMxjdxKz7wTavRV/scores/', {
+    const res = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Ml0wfxegyFf06umHiVlI/scores/', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',

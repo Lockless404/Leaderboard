@@ -2,16 +2,14 @@ import './style.css';
 import NewPlayer from './newplaya';
 import Api from './api';
 
-class Ui {
-  static render() {
+export default class Ui {
+  static render(players) {
     const listItems = document.querySelector('.list');
-    const players = Api.getData();
-    console.log(players[0]);
     players.forEach((player) => {
-      listItems.innerHTML = `
+      listItems.innerHTML += `
       <li>
-        <p>${player.user}</p>
-        <p>${player.score}</p>
+        <p>${player.user}:</p>
+        <p> ${player.score}</p>
       </li>
       `;
     });
@@ -24,10 +22,16 @@ class Ui {
     // //   `;
     // }
   }
+
+  static clearField() {
+    const listItems = document.querySelector('.list');
+    listItems.innerHTML = '';
+  }
 }
 
 const submitBtn = document.querySelector('.submitBtn');
-submitBtn.addEventListener('click', () => {
+submitBtn.addEventListener('click', (e) => {
+  e.preventDefault();
   const score = document.querySelector('.inputScore').value;
   const name = document.querySelector('.inputName').value;
   const player = new NewPlayer(name, Number(score));
@@ -36,6 +40,7 @@ submitBtn.addEventListener('click', () => {
 
 const refreshBtn = document.querySelector('.refreshBtn');
 refreshBtn.addEventListener('click', () => {
-  Ui.render();
+  Ui.clearField();
+  Api.getData();
 });
 

@@ -63,3 +63,9 @@ input {
   margin: 1rem 0 1rem 0;
   border: 2px solid #000;
 }
+
+.submitBtn {
+  position: relative;
+  left: -57;
+  top: 200;
+}

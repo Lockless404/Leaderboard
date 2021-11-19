@@ -13,7 +13,7 @@
 
 ## Live Demo
 
-[Live Demo Link will be implemented later](https://livedemo.com)
+[Live Demo Link will be implemented later](https://naughty-payne-dd348d.netlify.app)
 
 
 ## Getting Started

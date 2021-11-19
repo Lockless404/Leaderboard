@@ -52,14 +52,37 @@ li {
   width: 100%;
 }
 
+.secondHalf {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 form {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  width: 50%;
 }
 
 input {
   margin: 1rem 0 1rem 0;
   border: 2px solid #000;
+}
+
+.submitBtn {
+  width: 50%;
+}
+
+.Disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.errorMsg {
+  display: none;
+}
+
+.appear {
+  display: block;
 }

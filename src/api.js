@@ -1,4 +1,4 @@
-export const moveToApi = async (player) => {
+export default function moveToApi(player) {
   fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Ml0wfxegyFf06umHiVlI/scores/', {
     method: 'POST',
     headers: {

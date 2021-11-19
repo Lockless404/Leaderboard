@@ -5,5 +5,5 @@ export default function moveToApi(player) {
       'Content-type': 'application/json',
     },
     body: JSON.stringify(player),
-  }).then((res) => res.json());
+  }).then((res) => res.json())
 };

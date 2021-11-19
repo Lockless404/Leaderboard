@@ -1,6 +1,8 @@
 import './style.css';
 import NewPlayer from './newplaya';
-import Api from './api';
+import {
+  moveToApi,
+} from './api';
 
 export default class Ui {
   static render(players) {
@@ -21,7 +23,7 @@ export default class Ui {
   }
 }
 
-async function getData() {
+const getData = async () => {
   const pull = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Ml0wfxegyFf06umHiVlI/scores/');
 
   const data = await pull.json();
@@ -35,7 +37,7 @@ submitBtn.addEventListener('click', (e) => {
   const score = document.querySelector('.inputScore').value;
   const name = document.querySelector('.inputName').value;
   const player = new NewPlayer(name, Number(score));
-  Api.moveToApi(player);
+  moveToApi(player);
 });
 
 const refreshBtn = document.querySelector('.refreshBtn');

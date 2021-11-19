@@ -6,6 +6,6 @@ const moveToApi = (player) => {
     },
     body: JSON.stringify(player),
   }).then((res) => res.json());
-}
+};
 
 export default moveToApi();

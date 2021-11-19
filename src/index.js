@@ -1,6 +1,6 @@
 import './style.css';
 import NewPlayer from './newplaya';
-import {moveToApi, getData} from './api';
+import { moveToApi, getData } from './api';
 
 export default class Ui {
   static render(players) {

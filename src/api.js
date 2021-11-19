@@ -16,4 +16,4 @@ const getData = async () => {
   return dataOut;
 };
 
-export {moveToApi, getData};
+export { moveToApi, getData };

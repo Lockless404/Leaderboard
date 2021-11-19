@@ -1,6 +1,6 @@
 import './style.css';
 import NewPlayer from './newplaya';
-import moveToApi from './api';
+import {moveToApi, getData} from './api';
 
 export default class Ui {
   static render(players) {
@@ -21,25 +21,23 @@ export default class Ui {
   }
 }
 
-const getData = async () => {
-  const pull = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Ml0wfxegyFf06umHiVlI/scores/');
-
-  const data = await pull.json();
-  const dataOut = await data.result;
-  Ui.render(dataOut);
-};
-
 const submitBtn = document.querySelector('.submitBtn');
+const error = document.querySelector('.errorMsg');
 submitBtn.addEventListener('click', (e) => {
   e.preventDefault();
   const score = document.querySelector('.inputScore').value;
   const name = document.querySelector('.inputName').value;
   const player = new NewPlayer(name, Number(score));
   moveToApi(player);
+  submitBtn.classList.add('Disabled');
+  error.classList.add('appear');
 });
 
 const refreshBtn = document.querySelector('.refreshBtn');
-refreshBtn.addEventListener('click', () => {
+refreshBtn.addEventListener('click', async () => {
   Ui.clearField();
-  getData();
+  const dataOut = await getData();
+  Ui.render(dataOut);
+  submitBtn.classList.remove('Disabled');
+  error.classList.remove('appear');
 });

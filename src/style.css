@@ -72,3 +72,20 @@ input {
 .submitBtn {
   width: 50%;
 }
+
+.Disabled{
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.errorMsg {
+  display: none;
+}
+
+.appear {
+  display: block;
+}

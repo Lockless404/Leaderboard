@@ -8,4 +8,12 @@ const moveToApi = (player) => {
   }).then((res) => res.json());
 };
 
-export default moveToApi();
+const getData = async () => {
+  const pull = await fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Ml0wfxegyFf06umHiVlI/scores/');
+
+  const data = await pull.json();
+  const dataOut = await data.result;
+  return dataOut;
+};
+
+export {moveToApi, getData};

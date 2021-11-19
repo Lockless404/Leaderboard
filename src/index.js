@@ -1,8 +1,6 @@
 import './style.css';
 import NewPlayer from './newplaya';
-import {
-  moveToApi,
-} from './api';
+import { moveToApi } from './api';
 
 export default class Ui {
   static render(players) {
@@ -29,7 +27,7 @@ const getData = async () => {
   const data = await pull.json();
   const dataOut = await data.result;
   Ui.render(dataOut);
-}
+};
 
 const submitBtn = document.querySelector('.submitBtn');
 submitBtn.addEventListener('click', (e) => {
